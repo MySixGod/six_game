@@ -1,0 +1,19 @@
+%%%-------------------------------------------------------------------
+%%% @author cwt  <woshi6ye@gmail.com>
+%%% @copyright (C) 2017, <COMPANY>
+%%% @doc
+%%%
+%%% @end
+%%% Created : 05. 八月 2017 11:01
+%%%-------------------------------------------------------------------
+{application, tcp_server_app, [
+  {description, "a simple tcp server"},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+    kernel,
+    stdlib
+  ]},
+  {mod, {tcp_server_app, []}},
+  {env, []}
+]}.
