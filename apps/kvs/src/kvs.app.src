@@ -1,0 +1,19 @@
+%%%-------------------------------------------------------------------
+%%% @author cwt  <woshi6ye@gmail.com>
+%%% @copyright (C) 2017, <COMPANY>
+%%% @doc
+%%%
+%%% @end
+%%% Created : 30. 八月 2017 11:13
+%%%-------------------------------------------------------------------
+{application, kvs, [
+  {description, ""},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+    kernel,
+    stdlib
+  ]},
+  {mod, {kvs, []}},
+  {env, []}
+]}.
