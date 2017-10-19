@@ -4,9 +4,9 @@
 %%% @doc
 %%%
 %%% @end
-%%% Created : 19. 十月 2017 17:29
+%%% Created : 19. 十月 2017 14:45
 %%%-------------------------------------------------------------------
--module(game_server_sup).
+-module(kvs_sup).
 -author("cwt").
 
 -behaviour(supervisor).
@@ -66,8 +66,8 @@ init([]) ->
   Shutdown = 2000,
   Type = worker,
 
-  AChild = {'AName', {'AModule', start_link, []},
-    Restart, Shutdown, Type, ['AModule']},
+  AChild = {kvs_manager, {kvs_manager, start_link, []},
+    Restart, Shutdown, Type, [kvs_manager]},
 
   {ok, {SupFlags, [AChild]}}.
 

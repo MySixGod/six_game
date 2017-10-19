@@ -84,3 +84,7 @@ t12() ->
   io:format("~p ~n", [?make(nihao)]).
 
 
+t13() ->
+  [].
+
+

@@ -15,11 +15,6 @@
 %%====================================================================
 
 start(_StartType, _StartArgs) ->
-%%    db  apps
-    application:start(mysql),
-    application:start(poolboy),
-    application:start(mysql_poolboy),
-
     game_server_sup:start_link().
 
 %%--------------------------------------------------------------------
