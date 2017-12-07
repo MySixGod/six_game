@@ -8,6 +8,7 @@
 %%%-------------------------------------------------------------------
 -module(db).
 
+
 -define(DEFAULT_POOL, six_game).
 
 -define(PRINT(Term), io:format("~p ~n", [Term])).
@@ -139,8 +140,12 @@ t7() ->
     (binary:decode_unsigned(<<"password">>)):256, "">>.
 
 
-tt() ->
-  [aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa].
+%% 从n个数里面取m个数的组合
+-spec get_random_num(integer()) -> integer().
+get_random_num(Max) ->
+  <<A:32, B:32, C:32>> = crypto:rand_bytes(12),
+  rand:seed({A,B,C}),
+  rand:uniform(Max).
 
 
 

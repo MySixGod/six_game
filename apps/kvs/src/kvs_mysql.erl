@@ -8,7 +8,6 @@
 %%%-------------------------------------------------------------------
 -module(kvs_mysql).
 -behaviour(kvs_behaviour).
--author("cwt").
 
 -include("kvs.hrl").
 
@@ -25,18 +24,21 @@
 
 -import(kvs_util, [enc/3, dec/3, format_table_name/2]).
 
+
 open(Name, Options) ->
-  %% 获取参数
+  %% 取参数
+  MysqlTable = proplists:get_value(mysql_table, Options, defaut_kvs),
+  EtsOptions = proplists:get_value(ets_options, Options, [set, public, named_table]),
   Persistence = proplists:get_value(persistence, Options, false),
   KeyEncoding = proplists:get_value(key_encoding, Options, term),
   ValueEncoding = proplists:get_value(value_encoding, Options, term),
-  EtsName = format_table_name(Name, ets),
+  EtsName = format_table_name(Name, kvs),
   %% 初始化ets
   Ets = case Persistence of
-          false -> ets:new(EtsName, [set, public, named_table]);
+          false -> ets:new(EtsName, EtsOptions);
           _    -> DetsName = format_table_name(Name, dets),
             {ok, DetsRef} = dets:open_file(DetsName),
-            EstTemp = ets:new(EtsName, [set, public, named_table]),
+            EstTemp = ets:new(EtsName, EtsOptions),
             dets:to_ets(DetsRef, EstTemp)
         end,
   %% 返回存储引擎

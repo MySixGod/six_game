@@ -23,6 +23,10 @@
  {<<"sync">>,
   {git,"git://github.com/rustyio/sync.git",
        {ref,"6e9d730c8674ee3fa27dd8146316f94d2d180f59"}},
+  0},
+ {<<"tx">>,
+  {git,"https://github.com/kvakvs/tx",
+       {ref,"2478dc7a64ba533f912ffdbe1b8c471b9fc0298d"}},
   0}]}.
 [
 {pkg_hash,[

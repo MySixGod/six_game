@@ -21,9 +21,9 @@ dec(_, V, {term, _}) -> binary_to_term(V);
 dec(T, V, E) -> erlang:error({cannot_decode, [T, V, E]}).
 
 
-format_table_name(Name, ets) ->
-  list_to_atom(atom_to_list(Name) ++ "_ets");
-format_table_name(Name, dets) ->
-  list_to_atom(atom_to_list(Name) ++ "_dets").
+format_table_name(Name, kvs) ->
+  list_to_atom(atom_to_list(Name) ++ "_kvs");
+format_table_name(Name, _) ->
+  list_to_atom(atom_to_list(Name) ++ "_kvs").
 
 
